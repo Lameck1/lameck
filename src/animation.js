@@ -20,7 +20,7 @@ export const aboutAnimation = {
 };
 
 export const projectsAnimation = {
-  hide: { scale: 0, opacity: 0 },
+  hide: { scale: 0.5, opacity: 0 },
   show: { scale: 1, opacity: 1 },
 };
 
