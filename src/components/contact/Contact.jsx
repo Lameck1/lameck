@@ -18,7 +18,7 @@ const Contact = () => {
 };
 
 const Section = styled.section`
-  background-color: #eee;
+  background-color: inherit;
   min-height: 100vh;
   padding: 5rem 0.5rem;
 

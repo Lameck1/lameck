@@ -18,7 +18,7 @@ const PageFooter = () => {
 };
 
 const Footer = styled.footer`
-  background-color: #f5f5f5;
+  background-color: inherit;
 
   @media screen and (min-width: 768px) {
   }

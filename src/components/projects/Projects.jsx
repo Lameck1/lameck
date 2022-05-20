@@ -60,7 +60,7 @@ const Projects = ({ projects }) => {
 };
 
 const Section = styled.section`
-  background-color: #9cc5e9;
+  background-color: inherit;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

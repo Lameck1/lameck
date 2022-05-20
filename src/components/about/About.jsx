@@ -18,7 +18,7 @@ const About = () => {
 };
 
 const Section = styled.section`
-  background-color: #f5f5f5;
+  background-color: inherit;
   min-height: 100vh;
   padding: 5rem 0.5rem;
 
