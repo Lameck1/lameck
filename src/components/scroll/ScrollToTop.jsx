@@ -42,7 +42,7 @@ const Div = styled.div`
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 50%;
-    background-color: var(--secondary-color);
+    background-color: var(--dark-slate);
   }
 
   .scroll-to-top.active {
@@ -53,7 +53,7 @@ const Div = styled.div`
 
   svg {
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--green);
   }
 `;
 export default ScrollToTop;
