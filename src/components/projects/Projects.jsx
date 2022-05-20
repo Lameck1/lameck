@@ -66,7 +66,7 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 5rem 0.5rem;
+  padding: 5rem 1rem;
 
   h2 {
     font-size: 2rem;

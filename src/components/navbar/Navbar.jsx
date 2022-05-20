@@ -179,7 +179,7 @@ const Nav = styled(motion.nav)`
   }
 
   @media screen and (min-width: 992px) {
-    padding: 1rem 4rem 0;
+    padding: 2rem 3.5rem 0 3.5rem;
 
     .links {
       display: none;

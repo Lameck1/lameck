@@ -2,25 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { socialAnimation } from '../../animation';
+import { projectsAnimation } from '../../animation';
 
-const Social = ({ links, desktop }) => {
+const Social = ({ links }) => {
   return (
     <Div id="social">
       <ul>
         {links.map((link) => (
           <motion.li
             key={link.id}
-            variants={socialAnimation}
+            variants={projectsAnimation}
             transition={{
               type: 'spring',
               stiffness: 260,
               damping: 20,
             }}
           >
-            <a href={link.url} target="_blank" rel="noreferrer">
-              {link.icon}
-            </a>
+            {link.email ? (
+              <a href={`mailto:${link.email}`} title={link.name}>
+                {link.icon}
+              </a>
+            ) : (
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+                title={link.name}
+              >
+                {link.icon}
+              </a>
+            )}
           </motion.li>
         ))}
       </ul>
@@ -29,12 +40,8 @@ const Social = ({ links, desktop }) => {
 };
 
 const Div = styled.div`
-  // display none if desktop is true
-  @media (min-width: ${(props) => props.desktop}) {
-    display: none;
-  }
-
   min-height: 100vh;
+  display: none;
   ul {
     list-style: none;
 
@@ -81,7 +88,7 @@ const Div = styled.div`
     align-items: flex-end;
     position: fixed;
     top: 0;
-    left: 3rem;
+    left: 3.2rem;
     padding: 0 10px;
   }
 `;

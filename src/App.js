@@ -9,6 +9,8 @@ import Projects from './components/projects/Projects';
 import ScrollToTop from './components/scroll/ScrollToTop';
 import { motion } from 'framer-motion';
 import Splash from './components/splash/splash';
+import Social from './components/social/Social';
+import links from './assets/data/links';
 
 const App = () => {
   const [showSplash, setShowSplash] = React.useState(true);
@@ -32,6 +34,7 @@ const App = () => {
       {showPage && <About />}
       {showPage && <Contact />}
       {showPage && <Footer />}
+      {showPage && <Social links={links} />}
     </motion.div>
   );
 };

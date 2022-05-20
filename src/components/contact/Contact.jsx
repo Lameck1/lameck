@@ -20,7 +20,7 @@ const Contact = () => {
 const Section = styled.section`
   background-color: inherit;
   min-height: 100vh;
-  padding: 5rem 0.5rem;
+  padding: 5rem 1rem;
 
   @media screen and (min-width: 768px) {
   }

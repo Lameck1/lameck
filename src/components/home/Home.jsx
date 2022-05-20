@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { homeAnimation } from '../../animation';
+import { homeAnimation, projectsAnimation } from '../../animation';
 import Typewriter from 'typewriter-effect';
+import links from '../../assets/data/links';
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
         <p>Hi, I'm</p>
         <h1>Lameck Otieno</h1>
 
-        <div>
+        <div className="typewriter">
           <Typewriter
             options={{
               strings: ['A FULL-STACK WEB DEVELOPER.', 'A PASSIONATE LEANER.'],
@@ -32,7 +33,30 @@ const Home = () => {
           business problems into beautiful web applications.
         </p>
 
-        <a href="#projects">Check out my projects</a>
+        <a id="check-projects" href="#projects">
+          Check out my projects
+        </a>
+
+        <div className="social-mobile">
+          <h3>Let's connect</h3>
+          <ul>
+            {links.map((link) => (
+              <motion.li
+                key={link.id}
+                variants={projectsAnimation}
+                transition={{
+                  type: 'tween',
+                  bounce: 0.4,
+                  duration: 0.8,
+                }}
+              >
+                <a href={link.url} target="_blank" rel="noreferrer">
+                  {link.icon}
+                </a>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
       </motion.div>
     </Section>
   );
@@ -47,7 +71,7 @@ const Section = styled.section`
   background-position: center;
   background-repeat: no-repeat;
   font-family: var(--font-mono);
-  padding: 5rem 0.5rem;
+  padding: 5rem 1rem;
 
   div {
     display: flex;
@@ -55,7 +79,7 @@ const Section = styled.section`
     align-items: flex-start;
     width: 100%;
 
-    div {
+    .typewriter {
       display: flex;
       justify-content: center;
       height: 1rem;
@@ -94,7 +118,7 @@ const Section = styled.section`
       }
     }
 
-    a {
+    #check-projects {
       color: var(--green);
       text-decoration: none;
       border: 0.5px solid var(--green);
@@ -111,6 +135,40 @@ const Section = styled.section`
     }
   }
 
+  .social-mobile {
+    margin-top: 1.5rem;
+
+    h3 {
+      font-size: 1.3rem;
+      color: var(--lightest-slate);
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+
+      li {
+        margin: 1.5rem 0;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 50%;
+          border: 1px solid #e8e8e8;
+          transition: all 0.5s ease;
+          color: #e8e8e8;
+          text-decoration: none;
+          font-size: 1rem;
+          background-color: #0a192f;
+        }
+      }
+    }
+  }
+
   @media screen and (min-width: 768px) {
     div {
       width: 60%;
@@ -121,6 +179,10 @@ const Section = styled.section`
     div {
       width: 59%;
       align-items: flex-start;
+    }
+
+    .social-mobile {
+      display: none;
     }
   }
 `;
