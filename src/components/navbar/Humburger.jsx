@@ -16,19 +16,19 @@ const Hamburger = ({ isOpen }) => (
           width: 48px;
           height: 48px;
           transform: rotate(0deg);
-          transition: 0.7s ease-in-out;
+          transition: 0.1s ease-in-out;
         }
 
         .humburger span {
           display: block;
           position: absolute;
-          height: 3px;
+          height: 1.5px;
           width: 30px;
-          background-color: var(--secondary-color);
-          border-radius: 3px;
+          background-color: var(--green);
+          border-radius: 2px;
           opacity: 1;
           transform: rotate(0deg);
-          transition: 0.7s ease-in-out;
+          transition: 0.3s ease-in-out;
         }
 
         .humburger span:nth-child(1) {
