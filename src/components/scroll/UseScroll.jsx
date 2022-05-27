@@ -6,12 +6,6 @@ export const useScroll = (threshold = 0.2) => {
     threshold,
   });
   const controls = useAnimation();
-
-  if (inView) {
-    controls.start('show');
-  } else {
-    controls.start('hide');
-  }
-
+  inView ? controls.start('show') : controls.start('hide');
   return [ref, controls];
 };

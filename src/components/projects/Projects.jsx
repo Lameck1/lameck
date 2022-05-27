@@ -1,60 +1,72 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useScroll } from '../scroll/UseScroll';
-import { projectsAnimation } from '../../animation';
 import { motion } from 'framer-motion';
 import { FiGithub } from 'react-icons/fi';
 import { BiLinkExternal } from 'react-icons/bi';
 
+const variants = {
+  offscreen: {
+    y: 300,
+  },
+  onscreen: {
+    y: 0,
+    transition: {
+      type: 'tween',
+      ease: 'easeInOut',
+      duration: 0.4,
+      delay: 0,
+    },
+  },
+};
+
 const Projects = ({ projects }) => {
-  const [ref, controls] = useScroll();
   return (
-    <Section id="projects" ref={ref}>
+    <Section id="projects">
       <h2>My Projects</h2>
-      <ul>
+      <motion.ul>
         {projects.map((project) => (
           <motion.li
             key={project.id}
             className="project"
-            animate={controls}
-            variants={projectsAnimation}
-            transition={{
-              type: 'tween',
-              bounce: 0.4,
-              duration: 0.8,
-            }}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
           >
-            <img src={project.image} alt={project.title} />
-            <div className="project-info">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <div className="technologies">
-                {project.technologies.map((technology) => (
-                  <span key={technology}>{technology}</span>
-                ))}
+            <motion.div className="project-container" variants={variants}>
+              <img src={project.image} alt={project.title} />
+              <div className="project-info">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="technologies">
+                  {project.technologies.map((technology) => (
+                    <span key={technology}>{technology}</span>
+                  ))}
+                </div>
+                <div className="links">
+                  <a
+                    href={`${project.githubLink}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FiGithub />
+                    <span>Github Link</span>
+                  </a>
+                  {project.liveLink && (
+                    <a
+                      href={`${project.liveLink}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <BiLinkExternal /> <span>Live Demo</span>
+                    </a>
+                  )}
+                </div>
               </div>
-              <div className="links">
-                <a
-                  href={`${project.githubLink}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FiGithub />
-                  <span>Github Link</span>
-                </a>
-                <a
-                  href={`${project.liveLink}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <BiLinkExternal /> <span>Live Demo</span>
-                </a>
-              </div>
-            </div>
+            </motion.div>
           </motion.li>
         ))}
-      </ul>
+      </motion.ul>
     </Section>
   );
 };
@@ -67,102 +79,107 @@ const Section = styled.section`
   align-items: center;
   justify-content: center;
   padding: 5rem 1rem;
+  font-family: var(--font-sans);
 
   h2 {
-    font-size: 2rem;
-    color: var(--secondary-color);
-    text-shadow: 0 0.1rem 0.2rem #fff;
+    font-size: 2.5rem;
     padding-bottom: 1rem;
+    color: black;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--lightest-slate);
+    letter-spacing: 0.4rem;
   }
 
   ul {
     display: flex;
     flex-direction: column;
+    list-style: none;
 
     li {
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      border: 1px solid var(--primary-color);
-      margin-bottom: 1rem;
-      box-shadow: 0.1rem 0.1rem 0.2rem #000;
+      margin-bottom: 4rem;
 
-      img {
-        width: 100%;
+      .project-container {
         border-radius: 0.5rem;
-        border: 1px solid #ddd;
-        transition: all 0.5s ease;
-
-        :hover {
-          filter: none;
-          transform: scale(1.1);
-        }
-      }
-
-      .project-info {
+        border: 1px solid var(--primary-color);
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        width: 100%;
+        padding: 0.5rem;
 
-        h3 {
-          color: #fff;
-          padding: 1rem 0;
-          font-size: 1.5rem;
-          text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+        img {
+          width: 100%;
+          border-radius: 0.5rem;
+          border: 1px solid #ddd;
+          transition: all 0.5s ease;
+          object-fit: cover;
+          object-position: 100% 0%;
         }
 
-        div {
-          padding: 1rem 0;
-        }
-
-        .technologies {
+        .project-info {
           display: flex;
-          gap: 0.5rem;
+          flex-direction: column;
+          justify-content: center;
 
-          span {
-            background-color: #eceff1;
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border-radius: 0.5rem;
-            color: var(--primary-color);
-            box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+          h3 {
+            color: #fff;
+            padding: 1rem 0;
+            font-size: 1.5rem;
           }
-        }
 
-        .links {
-          display: flex;
-          gap: 1rem;
+          div {
+            padding: 1rem 0;
+          }
 
-          a {
+          .technologies {
             display: flex;
-            align-items: center;
-            padding: 0.3rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: all 0.5s ease;
-            border-radius: 0.5rem;
-            box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
-
-            :hover {
-              color: var(--secondary-color);
-              box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-            }
-
-            svg {
-              font-size: 1.5rem;
-            }
+            flex-wrap: wrap;
+            gap: 0.5rem;
 
             span {
-              margin-left: 0.2rem;
+              padding: 0.25rem 0.5rem;
+              font-size: 0.8rem;
+              font-weight: 900;
+              line-height: 1.5;
+              letter-spacing: 0.1rem;
+              border: 1px solid var(--primary-color);
+              border-radius: 0.5rem;
+              color: var(--primary-color);
+              background-color: var(--navy);
             }
           }
-        }
 
-        p {
-          border-radius: 0.5rem;
-          text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+          .links {
+            display: flex;
+            gap: 1rem;
+
+            a {
+              display: flex;
+              align-items: center;
+              padding: 0.3rem;
+              color: var(--lightest-slate);
+              text-decoration: none;
+              transition: all 0.5s ease;
+
+              :hover {
+                color: var(--primary-color);
+              }
+
+              svg {
+                font-size: 1.5rem;
+              }
+
+              span {
+                margin-left: 0.2rem;
+              }
+            }
+          }
+
+          p {
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 30px -15px var(--navy-shadow);
+            color: var(--lightest-slate);
+          }
         }
       }
     }
@@ -170,58 +187,62 @@ const Section = styled.section`
 
   @media screen and (min-width: 768px) {
     ul {
-      width: 95%;
+      width: 90%;
 
       li {
         position: relative;
-        height: 40vh;
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
+        margin-bottom: 4rem;
 
-        img {
-          height: 100%;
-          filter: grayscale(90%);
-        }
+        .project-container {
+          border-radius: 0;
+          border: none;
+          box-shadow: none;
 
-        .project-info {
-          position: absolute;
-          width: 70%;
-          z-index: 8;
+          img {
+            object-fit: fill;
+          }
 
-          p {
-            background-color: var(--primary-color);
-            color: #eceff1;
-            padding: 1rem;
-            box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+          .project-info {
+            position: absolute;
+            width: 70%;
+            z-index: 8;
+
+            p {
+              background-color: var(--light-navy);
+              padding: 1rem;
+            }
           }
         }
       }
 
       li:nth-child(odd) {
-        flex-direction: row;
-        padding: 1% 35% 1% 0;
+        .project-container {
+          flex-direction: row;
+          padding: 1% 35% 1% 0;
 
-        .project-info {
-          align-items: flex-end;
-          top: 0;
-          right: 0;
-          bottom: 0;
+          .project-info {
+            align-items: flex-end;
+            top: 0;
+            right: 0;
+            bottom: 0;
 
-          p {
-            text-align: right;
+            p {
+              text-align: right;
+            }
           }
         }
       }
 
       li:nth-child(even) {
-        flex-direction: row-reverse;
-        padding: 1% 0 1% 35%;
+        .project-container {
+          flex-direction: row-reverse;
+          padding: 1% 0 1% 35%;
 
-        .project-info {
-          top: 0;
-          left: 0;
-          bottom: 0;
+          .project-info {
+            top: 0;
+            left: 0;
+            bottom: 0;
+          }
         }
       }
     }
@@ -229,22 +250,36 @@ const Section = styled.section`
 
   @media screen and (min-width: 992px) {
     ul {
-      width: 70%;
+      width: 65%;
 
       li {
-        height: 50vh;
+        .project-container {
+          img {
+            filter: hue-rotate(90deg) brightness(40%) grayscale(10%);
 
-        .project-info {
-          width: 50%;
+            :hover {
+              filter: none;
+            }
+          }
+
+          height: 50vh;
+
+          .project-info {
+            width: 50%;
+          }
         }
       }
 
       li:nth-child(odd) {
-        padding-right: 40%;
+        .project-container {
+          padding-right: 40%;
+        }
       }
 
       li:nth-child(even) {
-        padding-left: 40%;
+        .project-container {
+          padding-left: 40%;
+        }
       }
     }
   }

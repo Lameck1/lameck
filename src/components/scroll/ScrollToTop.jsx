@@ -53,7 +53,7 @@ const Div = styled.div`
 
   svg {
     font-size: 1.5rem;
-    color: var(--green);
+    color: var(--primary-color);
   }
 `;
 export default ScrollToTop;

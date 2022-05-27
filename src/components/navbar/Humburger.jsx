@@ -24,7 +24,7 @@ const Hamburger = ({ isOpen }) => (
           position: absolute;
           height: 1.5px;
           width: 30px;
-          background-color: var(--green);
+          background-color: var(--primary-color);
           border-radius: 2px;
           opacity: 1;
           transform: rotate(0deg);

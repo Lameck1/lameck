@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { projectsAnimation } from '../../animation';
 
 const Social = ({ links }) => {
   return (
@@ -11,7 +10,12 @@ const Social = ({ links }) => {
         {links.map((link) => (
           <motion.li
             key={link.id}
-            variants={projectsAnimation}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0, y: -20 },
+              visible: { opacity: 1, y: 0 },
+            }}
             transition={{
               type: 'spring',
               stiffness: 260,
