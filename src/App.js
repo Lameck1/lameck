@@ -11,6 +11,7 @@ import { motion } from 'framer-motion';
 import Splash from './components/splash/splash';
 import Social from './components/social/Social';
 import links from './assets/data/links';
+import projects from './assets/data/projects';
 
 const App = () => {
   const [showSplash, setShowSplash] = React.useState(true);
@@ -30,7 +31,7 @@ const App = () => {
       {showPage && <Navbar />}
       {showPage && <ScrollToTop />}
       {showPage && <Home />}
-      {showPage && <Projects />}
+      {showPage && <Projects projects={projects} />}
       {showPage && <About />}
       {showPage && <Contact />}
       {showPage && <Footer />}
