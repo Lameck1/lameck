@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { homeAnimation, projectsAnimation } from '../../animation';
+import { homeAnimation } from '../../animation';
 import Typewriter from 'typewriter-effect';
 import links from '../../assets/data/links';
 
@@ -43,7 +43,18 @@ const Home = () => {
             {links.map((link) => (
               <motion.li
                 key={link.id}
-                variants={projectsAnimation}
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: -20,
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                  },
+                }}
                 transition={{
                   type: 'tween',
                   bounce: 0.4,
@@ -96,10 +107,9 @@ const Section = styled.section`
     }
 
     h1 {
-      font-size: clamp(35px, 8vw, 80px);
+      font-size: clamp(35px, 8vw, 65px);
       padding: 0;
       color: var(--lightest-slate);
-      line-height: 1.1;
     }
 
     p {
@@ -107,7 +117,7 @@ const Section = styled.section`
 
       :nth-of-type(1) {
         font-size: clamp(14px, 5vw, 25px);
-        color: var(--green);
+        color: var(--primary-color);
       }
 
       :nth-of-type(2) {
@@ -119,9 +129,9 @@ const Section = styled.section`
     }
 
     #check-projects {
-      color: var(--green);
+      color: var(--primary-color);
       text-decoration: none;
-      border: 0.5px solid var(--green);
+      border: 0.5px solid var(--primary-color);
       padding: 0.8rem 1.5rem;
       border-radius: 0.2rem;
       font-size: 1rem;
