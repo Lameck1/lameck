@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Lameck1/lameck/static/css/main.ef27880d.css",
-    "main.js": "/Lameck1/lameck/static/js/main.6f87da07.js",
-    "index.html": "/Lameck1/lameck/index.html",
-    "main.ef27880d.css.map": "/Lameck1/lameck/static/css/main.ef27880d.css.map",
-    "main.6f87da07.js.map": "/Lameck1/lameck/static/js/main.6f87da07.js.map"
+    "main.css": "/lameck/static/css/main.ef27880d.css",
+    "main.js": "/lameck/static/js/main.a99adc53.js",
+    "index.html": "/lameck/index.html",
+    "main.ef27880d.css.map": "/lameck/static/css/main.ef27880d.css.map",
+    "main.a99adc53.js.map": "/lameck/static/js/main.a99adc53.js.map"
   },
   "entrypoints": [
     "static/css/main.ef27880d.css",
-    "static/js/main.6f87da07.js"
+    "static/js/main.a99adc53.js"
   ]
 }
