@@ -2,7 +2,7 @@
   "name": "lameck",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lameck1.github.io/lameck/",
+  "homepage": "https://www.lameck.tech/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
