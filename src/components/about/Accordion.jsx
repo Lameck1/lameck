@@ -68,17 +68,9 @@ const Accordion = ({ i, expanded, setExpanded, header, items }) => {
             color: var(--primary-color);
           }
 
-          header::after {
-            content: '\\25B6';
-            color: var(--primary-color);
-            margin: 0;
-            padding: 0;
-            font-size: 1.1rem;
-          }
-
           .acc-details {
             overflow: hidden;
-            transform-origin: top center;
+            margin-bottom: 0.5rem;
           }
 
           .acc-items-container {
@@ -88,7 +80,6 @@ const Accordion = ({ i, expanded, setExpanded, header, items }) => {
             padding: 1rem;
             flex-wrap: wrap;
             border: 1px solid var(--primary-color);
-            margin-bottom: 0.5rem;
           }
 
           .acc-items {
@@ -105,8 +96,9 @@ const Accordion = ({ i, expanded, setExpanded, header, items }) => {
           }
 
           .acc-items p {
-            font-size: clamp(1.3rem, 4vw, 1.3rem);
+            font-size: clamp(0.5rem, 2vw, 1rem);
             color: var(--lightest-slate);
+            margin: 0;
           }
 
           @media screen and (min-width: 992px) {
