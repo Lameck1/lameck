@@ -7,10 +7,12 @@ import { BiLinkExternal } from 'react-icons/bi';
 
 const variants = {
   offscreen: {
-    y: 300,
+    y: 50,
+    opacity: 0,
   },
   onscreen: {
     y: 0,
+    opacity: 1,
     transition: {
       type: 'tween',
       ease: 'easeInOut',
@@ -81,16 +83,6 @@ const Section = styled.section`
   padding: 5rem 1rem;
   font-family: var(--font-sans);
 
-  h2 {
-    font-size: 2.5rem;
-    padding-bottom: 1rem;
-    color: black;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--lightest-slate);
-    letter-spacing: 0.4rem;
-  }
-
   ul {
     display: flex;
     flex-direction: column;
@@ -100,8 +92,7 @@ const Section = styled.section`
       margin-bottom: 4rem;
 
       .project-container {
-        border-radius: 0.5rem;
-        border: 1px solid var(--primary-color);
+        position: relative;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -109,39 +100,49 @@ const Section = styled.section`
 
         img {
           width: 100%;
-          border-radius: 0.5rem;
-          border: 1px solid #ddd;
+          height: 100%;
           transition: all 0.5s ease;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
           object-fit: cover;
-          object-position: 100% 0%;
         }
 
         .project-info {
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          z-index: 8;
+
+          ::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: hsla(217, 64%, 11%, 0.8);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+          }
 
           h3 {
             color: #fff;
             padding: 1rem 0;
-            font-size: 1.5rem;
-          }
-
-          div {
-            padding: 1rem 0;
+            font-size: clamp(1rem, 2.5vw, 2rem);
           }
 
           .technologies {
+            padding: 0.5rem 0;
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
 
             span {
               padding: 0.25rem 0.5rem;
-              font-size: 0.8rem;
+              font-size: clamp(0.4rem, 2vw, 0.8rem);
               font-weight: 900;
               line-height: 1.5;
-              letter-spacing: 0.1rem;
               border: 1px solid var(--primary-color);
               border-radius: 0.5rem;
               color: var(--primary-color);
@@ -152,6 +153,7 @@ const Section = styled.section`
           .links {
             display: flex;
             gap: 1rem;
+            padding: 0;
 
             a {
               display: flex;
@@ -160,6 +162,7 @@ const Section = styled.section`
               color: var(--lightest-slate);
               text-decoration: none;
               transition: all 0.5s ease;
+              margin: 0;
 
               :hover {
                 color: var(--primary-color);
@@ -177,8 +180,8 @@ const Section = styled.section`
 
           p {
             border-radius: 0.5rem;
-            box-shadow: 0 10px 30px -15px var(--navy-shadow);
             color: var(--lightest-slate);
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
           }
         }
       }
@@ -191,25 +194,37 @@ const Section = styled.section`
 
       li {
         position: relative;
-        margin-bottom: 4rem;
+        margin: 3rem 0;
 
         .project-container {
-          border-radius: 0;
           border: none;
           box-shadow: none;
 
           img {
-            object-fit: fill;
+            position: relative;
+            height: 100%;
+            width: 90%;
+            filter: hue-rotate(90deg) brightness(40%) grayscale(10%);
+
+            :hover {
+              filter: none;
+            }
           }
 
           .project-info {
             position: absolute;
-            width: 70%;
-            z-index: 8;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60%;
+
+            ::before {
+              display: none;
+            }
 
             p {
               background-color: var(--light-navy);
-              padding: 1rem;
+              padding: 0.5rem;
+              font-size: clamp(0.5rem, 4vw, 1rem);
             }
           }
         }
@@ -218,13 +233,14 @@ const Section = styled.section`
       li:nth-child(odd) {
         .project-container {
           flex-direction: row;
-          padding: 1% 35% 1% 0;
+
+          img {
+            left: 0;
+          }
 
           .project-info {
             align-items: flex-end;
-            top: 0;
             right: 0;
-            bottom: 0;
 
             p {
               text-align: right;
@@ -236,12 +252,14 @@ const Section = styled.section`
       li:nth-child(even) {
         .project-container {
           flex-direction: row-reverse;
-          padding: 1% 0 1% 35%;
+
+          img {
+            right: 0;
+          }
 
           .project-info {
-            top: 0;
+            align-items: flex-start;
             left: 0;
-            bottom: 0;
           }
         }
       }
@@ -250,35 +268,13 @@ const Section = styled.section`
 
   @media screen and (min-width: 992px) {
     ul {
-      width: 65%;
+      width: 70%;
 
       li {
         .project-container {
           img {
-            filter: hue-rotate(90deg) brightness(40%) grayscale(10%);
-
-            :hover {
-              filter: none;
-            }
+            width: 70%;
           }
-
-          height: 50vh;
-
-          .project-info {
-            width: 50%;
-          }
-        }
-      }
-
-      li:nth-child(odd) {
-        .project-container {
-          padding-right: 40%;
-        }
-      }
-
-      li:nth-child(even) {
-        .project-container {
-          padding-left: 40%;
         }
       }
     }
