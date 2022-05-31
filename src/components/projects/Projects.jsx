@@ -202,9 +202,9 @@ const Section = styled.section`
 
           img {
             position: relative;
-            height: 100%;
+            height: 350px;
             width: 90%;
-            filter: hue-rotate(90deg) brightness(40%) grayscale(10%);
+            filter: hue-rotate(90deg) brightness(60%) grayscale(10%);
 
             :hover {
               filter: none;
@@ -273,7 +273,30 @@ const Section = styled.section`
       li {
         .project-container {
           img {
-            width: 70%;
+            width: 60%;
+          }
+
+          .project-info {
+            width: 65%;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    ul {
+      width: 65%;
+
+      li {
+        .project-container {
+          img {
+            width: 60%;
+            object-fit: cover;
+          }
+
+          .project-info {
+            width: 50%;
           }
         }
       }

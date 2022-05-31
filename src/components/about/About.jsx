@@ -66,6 +66,10 @@ const Section = styled.section`
     text-justify: inter-word;
   }
 
+  .text {
+    margin-bottom: 1rem;
+  }
+
   .accordion {
     width: 95vw;
   }
@@ -85,6 +89,15 @@ const Section = styled.section`
     }
     .accordion {
       width: 40vw;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .text {
+      width: 45vw;
+    }
+    .accordion {
+      width: 35vw;
     }
   }
 `;

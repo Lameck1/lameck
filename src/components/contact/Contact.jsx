@@ -15,7 +15,7 @@ const Contact = () => {
         <div>
           <p>
             I would like to be a part of your engineering team. Do I look the
-            part? Please feel free to leave me a message
+            part? Please feel free to leave me a message.
           </p>
         </div>
         <form action="https://formsubmit.co/lameck72@gmail.com" method="POST">
@@ -101,6 +101,7 @@ const Section = styled.section`
         background-color: var(--lightest-slate);
         color: var(--dark-slate);
         font-size: clamp(1rem, 2vw, 1.2rem);
+        font-weight: bold;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
 
@@ -118,28 +119,28 @@ const Section = styled.section`
       border-radius: 0.5rem;
       padding: 2rem;
 
-      flex-direction: row;
       align-items: center;
       gap: 0.5rem;
       width: 70%;
 
-      div {
-        width: 50%;
-      }
-
+      div,
       form {
-        width: 50%;
+        width: 90%;
       }
     }
   }
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1024px) {
     .contact {
       flex-direction: row;
-      width: 50%;
+      width: 60%;
 
       div {
         width: 50%;
+
+        p {
+          text-align: right;
+        }
       }
 
       form {
