@@ -77,10 +77,7 @@ const Section = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: cover;
   min-height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
   font-family: var(--font-mono);
   padding: 5rem 1rem;
 
@@ -187,7 +184,7 @@ const Section = styled.section`
 
   @media screen and (min-width: 992px) {
     div {
-      width: 59%;
+      width: 50%;
       align-items: flex-start;
     }
 
