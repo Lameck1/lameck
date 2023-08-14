@@ -9,26 +9,27 @@ const About = () => {
 
   return (
     <Section id="about">
-      <h2>About Me</h2>
+      <h2>Bio</h2>
       <div className="text">
         <p>
-          Hi, I'm Lameck Otieno and I love building solutions for the web. My
-          passion for web development got built from curiosity on how the web
-          works and how it can be used to solve problems.
+          Lameck Otieno is a Full-Stack Software Web Developer and
+          aspiring Data Scientist who is currently enrolled in an
+          intensive program at ALX. In addition to his studies,
+          Lameck also serves as an Applications Support Engineer
+          for the Abc Advisory Company, where he helps people with
+          their tech-related issues.
         </p>
         <p>
-          I love learning, and software development fulfills that need. It's
-          always everchanging, and I'm always looking to learn more. Nothing
-          would make me happy than being a member of an engineering team focused
-          on developing web technology solutions for businesses and the greater
-          good, and feed my enthusiasm for converting business ideas into
-          attractive web applications.
+        His passion lies in making data more accessible and user-friendly,
+        which is why he's developing a cutting-edge application that allows
+        users to converse with their data. Lameck is a proud alumnus of Microverse,
+        where he honed his skills in full-stack web development.
         </p>
         <p>
-          While learning software development, I have honed the relevant
-          technical skills and have been able to apply them in a variety of
-          projects. The accordion below summarizes some of the skills I have
-          acquired.
+        Now, he's eager to apply his expertise to data science.
+        With his unique blend of web development experience and
+        a fervor for data, Lameck aims to bridge the gap between
+        complex data analysis and user-friendly solutions.
         </p>
       </div>
 

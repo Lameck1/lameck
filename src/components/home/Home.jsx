@@ -19,7 +19,7 @@ const Home = () => {
         <div className="typewriter">
           <Typewriter
             options={{
-              strings: ['A FULL-STACK WEB DEVELOPER.', 'A PASSIONATE LEANER.'],
+              strings: ['DATA SCIENTIST.', 'FULL-STACK WEB DEVELOPER.', 'LIFE-LONG LEARNER.'],
               autoStart: true,
               loop: true,
               cursor: '',
@@ -27,10 +27,11 @@ const Home = () => {
           />
         </div>
         <p>
-          A software developer based in Kenya, specializing in Ruby on Rails,
-          React, JavaScript, CSS and HTML. I am seeking to apply my technical
-          skills to a collaborative development team. I love translating
-          business problems into beautiful web applications.
+          A Full-Stack Developer and aspiring Data Scientist from ALX.
+          Currently at Abc Advisory as an Applications Support Engineer, I'm passionate about
+          making data accessible and user-friendly. With a strong foundation from Microverse
+          and a vision to revolutionize data interaction, I'm on a mission to connect complex
+          data with everyday users.
         </p>
 
         <a id="check-projects" href="#projects">
@@ -92,7 +93,7 @@ const Section = styled.section`
       justify-content: center;
       height: 1rem;
       width: 100%;
-      padding: 0.3rem;
+      padding: 0.2rem;
       margin: 1.5rem 0;
 
       span {

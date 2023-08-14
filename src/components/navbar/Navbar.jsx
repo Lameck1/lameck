@@ -58,7 +58,12 @@ const Navbar = () => {
         </li>
         <li>
           <a href="#about" onClick={toggleHamburger}>
-            ABOUT
+            BIO
+          </a>
+        </li>
+        <li>
+          <a href="#pitch" onClick={toggleHamburger}>
+            ELEVATOR PITCH
           </a>
         </li>
         <li>
@@ -85,7 +90,10 @@ const Navbar = () => {
           <a href="#projects">MY PROJECTS</a>
         </li>
         <li>
-          <a href="#about">ABOUT</a>
+          <a href="#about">BIO</a>
+        </li>
+        <li>
+          <a href="#pitch">ELEVATOR PITCH</a>
         </li>
         <li>
           <a href="#contact">CONTACT</a>

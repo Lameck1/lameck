@@ -1,6 +1,37 @@
 const skills = [
   {
     id: 0,
+    name: 'Data Science',
+    items: [
+      {
+        id: 0,
+        name: 'Python',
+        icon: 'https://cdn.iconscout.com/icon/free/png-64/python-2-226051.png',
+      },
+      {
+        id: 1,
+        name: 'TensorFlow',
+        icon: 'https://cdn.iconscout.com/icon/free/png-64/tensorflow-2-555397.png',
+      },
+      {
+        id: 2,
+        name: 'Pandas',
+        icon: 'https://cdn.iconscout.com/icon/premium/png-64-thumb/pandas-2-839153.png',  // Placeholder icon as there's no widely recognized icon for Pandas
+      },
+      {
+        id: 3,
+        name: 'Jupyter',
+        icon: 'https://cdn.iconscout.com/icon/free/png-64/jupyter-1-555278.png',
+      },
+      {
+        id: 4,
+        name: 'Data Visualization',
+        icon: 'https://cdn.iconscout.com/icon/premium/png-64-thumb/data-visualization-3-1041179.png',
+      },
+    ],
+  },
+  {
+    id: 1,
     name: 'Languages',
     items: [
       {
@@ -31,7 +62,7 @@ const skills = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     name: 'Frameworks',
     items: [
       {
@@ -57,7 +88,7 @@ const skills = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     name: 'Skills',
     items: [
       {

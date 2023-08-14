@@ -36,10 +36,32 @@ const Projects = ({ projects }) => {
             viewport={{ once: true, amount: 0.8 }}
           >
             <motion.div className="project-container" variants={variants}>
-              <img src={project.image} alt={project.title} />
+              {project.videoLink && (
+                <iframe
+                  width="60%"
+                  height="400"
+                  src={project.videoLink}
+                  title={project.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen>
+                </iframe>
+              )}
+              {project.image && (
+                <img src={project.image} alt={project.title} />
+              )}
               <div className="project-info">
                 <h3>{project.title}</h3>
-                <p>{project.description}</p>
+                { project.slideDeckLink && (
+                  <a
+                    href={`${project.slideDeckLink}`}
+                    target="_blank"
+                  >
+                    <p>{project.description}</p>
+                  </a>
+                )}
+                { !project.slideDeckLink && (
+                  <p>{project.description}</p>
+                )}
                 <div className="technologies">
                   {project.technologies.map((technology) => (
                     <span key={technology}>{technology}</span>
@@ -314,6 +336,7 @@ Projects.propTypes = {
       technologies: PropTypes.arrayOf(PropTypes.string),
       githubLink: PropTypes.string,
       liveLink: PropTypes.string,
+      videoLink: PropTypes.string,
     }),
   ),
 };
