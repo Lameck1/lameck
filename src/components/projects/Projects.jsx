@@ -72,7 +72,6 @@ const Projects = ({ projects }) => {
                     <a
                     href={`${project.githubLink}`}
                     target="_blank"
-                    rel="noreferrer"
                   >
                     <FiGithub />
                     <span>Github Link</span>
