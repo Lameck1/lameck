@@ -55,6 +55,7 @@ const Projects = ({ projects }) => {
                   <a
                     href={`${project.slideDeckLink}`}
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <p>{project.description}</p>
                   </a>
