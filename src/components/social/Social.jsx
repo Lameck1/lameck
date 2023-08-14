@@ -30,7 +30,7 @@ const Social = ({ links }) => {
               <a
                 href={link.url}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 title={link.name}
               >
                 {link.icon}

@@ -72,6 +72,7 @@ const Projects = ({ projects }) => {
                     <a
                     href={`${project.githubLink}`}
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <FiGithub />
                     <span>Github Link</span>
@@ -81,7 +82,7 @@ const Projects = ({ projects }) => {
                     <a
                       href={`${project.liveLink}`}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                     >
                       <BiLinkExternal /> <span>Live Demo</span>
                     </a>

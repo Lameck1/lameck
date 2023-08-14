@@ -34,7 +34,7 @@ const PageFooter = () => {
                 duration: 0.8,
               }}
             >
-              <a href={link.url} target="_blank" rel="noreferrer">
+              <a href={link.url} target="_blank" rel="noopener noreferrer">
                 {link.icon}
               </a>
             </motion.li>

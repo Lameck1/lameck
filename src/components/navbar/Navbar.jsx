@@ -75,7 +75,7 @@ const Navbar = () => {
           <a
             href={`${resume}`}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             onClick={toggleHamburger}
           >
             RESUME
@@ -99,7 +99,7 @@ const Navbar = () => {
           <a href="#contact">CONTACT</a>
         </li>
         <li className="resume">
-          <a href={`${resume}`} target="_blank" rel="noreferrer">
+          <a href={`${resume}`} target="_blank" rel="noopener noreferrer">
             RESUME
           </a>
         </li>

@@ -13,7 +13,7 @@ const Pitch = () => {
       >
         <h2>Elevator Pitch</h2>
         <div className="document-placeholder">
-          <a href="https://docs.google.com/document/d/1m2umnfaqP5evVHUdjAjNSMt72ueTctgRTBvQF85o4_Q/edit?usp=sharing" target="_blank" rel="noreferrer">
+          <a href="https://docs.google.com/document/d/1m2umnfaqP5evVHUdjAjNSMt72ueTctgRTBvQF85o4_Q/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
             View My Elevator Pitch
           </a>
         </div>
