@@ -68,7 +68,8 @@ const Projects = ({ projects }) => {
                   ))}
                 </div>
                 <div className="links">
-                  <a
+                  {project.githubLink && (
+                    <a
                     href={`${project.githubLink}`}
                     target="_blank"
                     rel="noreferrer"
@@ -76,6 +77,7 @@ const Projects = ({ projects }) => {
                     <FiGithub />
                     <span>Github Link</span>
                   </a>
+                  )}
                   {project.liveLink && (
                     <a
                       href={`${project.liveLink}`}
