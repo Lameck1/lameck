@@ -61,11 +61,11 @@ const Navbar = () => {
             BIO
           </a>
         </li>
-        <li>
+        {/* <li>
           <a href="#pitch" onClick={toggleHamburger}>
             ELEVATOR PITCH
           </a>
-        </li>
+        </li> */}
         <li>
           <a href="#contact" onClick={toggleHamburger}>
             CONTACT
@@ -92,9 +92,9 @@ const Navbar = () => {
         <li>
           <a href="#about">BIO</a>
         </li>
-        <li>
+        {/* <li>
           <a href="#pitch">ELEVATOR PITCH</a>
-        </li>
+        </li> */}
         <li>
           <a href="#contact">CONTACT</a>
         </li>

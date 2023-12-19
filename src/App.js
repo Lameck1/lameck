@@ -12,7 +12,7 @@ import Splash from './components/splash/splash';
 import Social from './components/social/Social';
 import links from './assets/data/links';
 import projects from './assets/data/projects';
-import Pitch from './components/pitch/Pitch';
+// import Pitch from './components/pitch/Pitch';
 
 const App = () => {
   const [showSplash, setShowSplash] = React.useState(true);
@@ -34,7 +34,7 @@ const App = () => {
       {showPage && <Home />}
       {showPage && <Projects projects={projects} />}
       {showPage && <About />}
-      {showPage && <Pitch />}
+      {/* {showPage && <Pitch />} */}
       {showPage && <Contact />}
       {showPage && <Footer />}
       {showPage && <Social links={links} />}
